@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Summit Roofing (Spec Work) · Codru Atelier</title>
+<meta name="description" content="Spec work by Codru Atelier: a one-page site for a made-up roofing company, showing what a fast trade site can look like.">
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<style>
+  /* A deliberately different look from the studio's own site: light, warm and plain, as a trade site should be. */
+  :root { --bg: #fbfaf7; --ink: #1d232b; --muted: #5a6470; --line: #e3e0d8; --brand: #c2410c; --brand-ink: #fff; --card: #ffffff; --ok: #166534; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  .spec { background: #fde68a; color: #422006; text-align: center; font-size: 14px; padding: 10px 16px; }
+  .spec a { color: #422006; font-weight: 600; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 1px solid var(--line); background: var(--card); position: sticky; top: 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; flex-wrap: wrap; }
+  .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 20px; }
+  .logo span { color: var(--brand); }
+  .call { display: inline-flex; align-items: center; gap: 8px; background: var(--brand); color: var(--brand-ink); text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 10px; }
+  .hero { padding: 48px 0 32px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start; }
+  h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 12px; text-wrap: balance; }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 20px; }
+  .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .ticks li::before { content: "✓ "; color: var(--ok); font-weight: 700; }
+  form { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 12px; box-shadow: 0 8px 24px rgb(0 0 0 / 0.05); }
+  form h2 { margin: 0; font-size: 20px; }
+  label { font-weight: 600; font-size: 14px; display: grid; gap: 4px; }
+  input, select, textarea { font: inherit; padding: 10px 12px; border: 1px solid #cfcac0; border-radius: 10px; background: #fff; color: var(--ink); }
+  textarea { min-height: 80px; }
+  button { font: inherit; font-weight: 700; background: var(--brand); color: #fff; border: 0; border-radius: 10px; padding: 12px; cursor: pointer; }
+  :focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; }
+  .done { background: #ecfdf5; border: 1px solid #a7f3d0; color: var(--ok); padding: 12px; border-radius: 10px; }
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 26px; letter-spacing: -0.02em; margin: 0 0 16px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); }
+  blockquote { margin: 0; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+  @media (max-width: 800px) { .hero { grid-template-columns: 1fr; } .cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<p class="spec"><strong>Spec work by Codru Atelier</strong> · "Summit Roofing" is a made-up business; the reviews and numbers are placeholders. · <a href="work.html">Back to Codru Atelier</a></p>
+<header>
+  <div class="wrap">
+    <div class="logo">Summit<span>Roofing</span></div>
+    <a class="call" href="#quote" aria-label="Call Summit Roofing (example number)">☎ (555) 010-0142</a>
+  </div>
+</header>
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Roof leak? We're on it today.</h1>
+      <p class="lead">Repairs, replacements and storm damage across the county. Free quotes within 24 hours, photos welcome.</p>
+      <ul class="ticks">
+        <li>Licensed and insured (example)</li>
+        <li>Same-day emergency tarping</li>
+        <li>Missed our call? You get a text back within a minute</li>
+      </ul>
+    </div>
+    <form id="quote" novalidate>
+      <h2>Get a free quote</h2>
+      <label>Your name <input id="q-name" autocomplete="name" required></label>
+      <label>Phone <input id="q-phone" type="tel" autocomplete="tel" required></label>
+      <label>What's the problem?
+        <select id="q-type"><option>A leak</option><option>Storm damage</option><option>A new roof</option><option>Something else</option></select>
+      </label>
+      <label>Anything else? <textarea id="q-notes"></textarea></label>
+      <button type="submit">Send my request</button>
+      <p class="done" id="q-done" role="status" hidden>Thanks! On a real site this request would reach the owner's phone and you'd get a text confirming it. (Spec work: nothing was sent.)</p>
+    </form>
+  </div>
+
+  <section aria-labelledby="services">
+    <h2 id="services">What we do</h2>
+    <div class="cards">
+      <div class="card"><h3>Leak repairs</h3><p>Found and fixed, with photos of before and after.</p></div>
+      <div class="card"><h3>Storm damage</h3><p>Emergency tarping the same day, and help with the insurance photos.</p></div>
+      <div class="card"><h3>New roofs</h3><p>Asphalt and metal, with a written quote and a fixed start date.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="reviews">
+    <h2 id="reviews">What customers say <small style="font-size:14px;color:var(--muted)">(placeholder reviews for this spec)</small></h2>
+    <div class="cards">
+      <blockquote class="card"><p>"Called at 7 pm, got a text right away and a visit the next morning."</p><h3>— Placeholder review</h3></blockquote>
+      <blockquote class="card"><p>"Clear quote, finished on the day they said."</p><h3>— Placeholder review</h3></blockquote>
+      <blockquote class="card"><p>"Sent photos through the form and had a price the same day."</p><h3>— Placeholder review</h3></blockquote>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Summit Roofing is a made-up business. Spec work by <a href="index.html">Codru Atelier</a>, built to show what a fast, simple trade site can look like.</div></footer>
+<script>
+  document.getElementById('quote').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('q-done').hidden = false;
+  });
+</script>
+</body>
+</html>

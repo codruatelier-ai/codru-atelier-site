@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Audit Gratuit · Codru Atelier</title>
+<meta name="description" content="Audit gratuit pentru site-ul firmei dumneavoastră: în 2 zile lucrătoare, viteza pe mobil, ce se întâmplă cu un apel ratat și 3 îmbunătățiri ușoare.">
+<!-- include:head -->
+</head>
+<body data-page="audit">
+<!-- include:header -->
+<main id="main">
+<section>
+  <div class="wrap grid two">
+    <div class="section-head">
+      <p class="eyebrow">Gratuit · fără obligații</p>
+      <h1>Audit gratuit pentru site-ul firmei dumneavoastră</h1>
+      <p class="lead">În 2 zile lucrătoare primiți pe email o pagină cu:</p>
+      <ul class="prose" style="padding-left:1.2rem;color:var(--muted)">
+        <li>viteza site-ului pe telefon;</li>
+        <li>ce se întâmplă astăzi cu un apel sau o cerere de ofertă ratată;</li>
+        <li>3 îmbunătățiri ușoare, explicate simplu.</li>
+      </ul>
+      <p class="small"><a href="media/sample-roofer.pdf" lang="en">Vedeți un exemplu (în engleză, firmă inventată)</a></p>
+    </div>
+
+    <form class="audit card" id="audit" novalidate data-endpoint="{{auditEndpoint}}" data-email="{{email}}">
+      <div class="field"><label for="a-company">Numele firmei</label><input id="a-company" name="company" autocomplete="organization" required maxlength="160"></div>
+      <div class="field"><label for="a-site">Site-ul</label><input id="a-site" name="website" type="url" inputmode="url" placeholder="https://" required maxlength="300"></div>
+      <div class="field"><label for="a-email">Adresa de email</label><input id="a-email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
+      <div class="consent">
+        <input id="a-consent" name="consent" type="checkbox" required>
+        <label for="a-consent">Sunt de acord să fiu contactat prin email de Codru Atelier în legătură cu acest audit și serviciile sale. Mă pot dezabona oricând. <a href="privacy.html" lang="en">Politica de confidențialitate</a></label>
+      </div>
+      <button class="btn primary" type="submit">Trimite cererea</button>
+      <p class="notice" id="a-msg" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+</main>
+<!-- include:footer -->
+<script src="assets/audit.js"></script>
+</body>
+</html>

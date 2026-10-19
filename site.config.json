@@ -1,0 +1,15 @@
+{
+  "_note": "Public details shown on the site. Nothing secret goes here. `npm run ready` fails while any value is TODO or a link is empty; empty links fall back to email until then.",
+  "ownerFirstName": "Sebastian",
+  "ownerFullName": "TODO(owner): your full name",
+  "city": "TODO(owner): your city",
+  "country": "Romania",
+  "postalAddress": "TODO(owner): the business postal address (the same one every email shows)",
+  "legalForm": "TODO(owner): e.g. PFA or SRL, with its registration number",
+  "email": "codruatelier@gmail.com",
+  "bookingUrl": "",
+  "questionnaireUrl": "",
+  "auditEndpoint": "",
+  "siteUrl": "https://codruatelier-ai.github.io/codru-atelier-site/",
+  "updated": "19 October 2026"
+}
