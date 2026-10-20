@@ -3,8 +3,7 @@
 Newest first. Every push to `main` gets an entry and the same number in
 `package.json → version`.
 
-
-## Unreleased
+## 0.2.0 · 2026-10-20
 
 - The site: home, two niche offer pages, work (demos, spec work, sample audits, all labelled made-up),
   a spec one-page site for a made-up roofer, privacy notice, Romanian free-audit request page with
