@@ -4,61 +4,72 @@ The look of Codru Atelier's public pages: this site, the client questionnaire (`
 Overseer Board. The source of truth is `client-onboarding/.tastemaker/style-lock.md`. This file is the same
 system written for building pages; keep the two in step, and change both together.
 
+**Direction (owner, 2026-10-21):** near-black, one deep red, very large white type, and photos drawn as a
+field of light dots that slowly breathe. Taken from the owner's reference boards. Calm, with one dramatic
+beat per photo.
+
 ## Colour tokens (dark only, `color-scheme: dark`)
 
 | Token | Value | Use | Contrast |
 | --- | --- | --- | --- |
-| `--bg` | `#0b0d10` | Page, header | — |
-| `--surface` | `#12151a` | Cards, steps | — |
-| `--field` | `#181c22` | Inputs, notices, photo placeholders | — |
-| `--text` | `#eef1f4` | Body text, focus ring | 17.2:1 on bg |
-| `--muted` | `#9aa3ad` | Help text, notes, labels | 6.7:1 on field, 6.1:1 on selected |
-| `--control` | `#6b7480` | Input, tag and secondary-button borders | 3.6:1 on field, 4.1:1 on bg |
-| `--hairline` | `#232831` | Section and card dividers (decorative only) | — |
-| `--accent` | `#8fb3ff` | Primary buttons, links, the featured card's edge | 9.3:1 on bg |
-| `--accent-hi` | `#adc7ff` | Hover, demo tags, step numbers | 11.5:1 on bg |
-| `--on-accent` | `#0a1222` | Text on accent | 9.0:1 |
-| `--selected` | `#17233a` | Featured card fill | — |
-| `--good` / `--warn` / `--error` | `#6fd3a8` / `#f3c46b` / `#ff8f85` | Status, always with words | ≥7:1 on surface |
+| `--bg` | `#050506` | Page, header | — |
+| `--surface` / `--field` | `#0f0f11` / `#141417` | Inputs, notices | — |
+| `--glass` | white at 3.5% | Cards and steps, with a 1px lit top edge | — |
+| `--edge` / `--edge-hi` | white at 10% / 22% | Dividers (decorative) / outline buttons, tags | — |
+| `--text` | `#f2f2f0` | Body text, focus ring | 18.2:1 on bg |
+| `--muted` | `#9b9ca3` | Help text, notes, details | 7.5:1 on bg, 6.7:1 on field |
+| `--control` | `#6b6c74` | Input borders | 3.5:1 on field |
+| `--accent` / `--accent-hi` | `#9b1c1f` / `#b42226` | Primary buttons, logo mark, play button | white 8.1:1 / 6.6:1 |
+| `--ember` | `#ef5348` | Links, numbers on the promises, the current-page underline | 5.8:1 on bg |
+| `--good` / `--warn` / `--error` | `#6fd3a8` / `#f3c46b` / `#ff8f85` | Status, always with words | ≥7:1 on bg |
 
-Proportions: about 60% near-black base, 30% surface greys, 10% blue accent (buttons, links, the one
-featured card). The accent is never decoration.
+Proportions: about 60% near-black, 30% glass and greys, 10% red. Red marks actions and the one glow
+behind a call-to-action card; it is never decoration on text.
 
 ## Type
 
-- **Geist 600** for headings and the wordmark only. It is self-hosted (`site/assets/fonts/geist-600.woff2`,
-  OFL licence beside it) and preloaded. No Google Fonts: the privacy page promises no third parties.
-- **System fonts** for everything else (`ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto`).
-- Scale in px: 13 (tags) · 14 (notes, labels) · 16 (body) · 18 (lead, h3) · 22 (h2 on phones, prices) ·
-  32 (h1 on phones, h2 on desktop) · 44 (h1 on desktop).
-- Weights: 400 and 600. `strong` is 600. `em` is shown as 600 and never in italics.
-- Sentence case everywhere. No all-caps labels, no letter-spaced eyebrows.
-- Lines stay under about 70 characters (`.lead` 60ch, `.small` and `.prose` 70ch).
+- **Geist 600** for headings and the wordmark only. Self-hosted (`site/assets/fonts/geist-600.woff2` here,
+  `public/fonts/` in the questionnaire, OFL licence beside it) and preloaded. No Google Fonts.
+- **System fonts** for everything else.
+- Headlines are the memorable element: h1 44–104px (`clamp`), line height 0.96, tracking −0.035em;
+  h2 32–56px. Body 16px, lead 19px.
+- Weights 400 and 600. `strong` is 600; `em` is 600 and never italic. Sentence case everywhere.
+- Lines stay under about 70 characters (`.lead` 42ch, `.small` and `.prose` 70ch).
 
 ## Spacing and shape
 
-- Spacing tokens: `--s1` 4 · `--s2` 8 · `--s3` 12 · `--s4` 16 · `--s5` 24 · `--s6` 32 · `--s7` 48 · `--s8` 64 · `--s9` 96.
-  No raw px for spacing in components.
-- Radii: `--r-lg` 20 (cards, photos) · `--r-md` 12 (buttons, inputs) · `--r-sm` 8 · pills 999.
-- No shadows, gradients or blur.
+- Spacing tokens `--s1`…`--s10`: 4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128. No raw px in components.
+- Radii: `--r-lg` 24 (cards, photos) · `--r-md` 16 (inputs, video) · buttons and tags are pills.
+- Shadows only as light: a 1px lit top edge on glass, a red shadow under primary buttons, one soft red
+  glow per call-to-action card. No grey drop shadows.
+
+## Photos as dots (`site/assets/halftone.js`)
+
+- Markup: `<div class="dots" data-halftone data-cell="7" data-gamma="1.1"><img src alt></div>`. Without
+  JavaScript the `<img>` shows in black and white; with it, a canvas draws the dots and the image stays in
+  the page (visually hidden) for its alt text.
+- Every photo fades out over its outer 14% on all sides (`--fade` mask), so it dissolves into the page.
+- Motion: a ~7 s breathing wave (dots swell by about 6%), a light sweep every 9 s (2.4 s, eased), and a
+  pointer bloom (dots within ~170px grow and lean up to 9px away, easing in over ~0.6 s). Touch pointers
+  don't trigger it.
+- Nothing moves under `prefers-reduced-motion: reduce`, and nothing runs while the photo is off screen.
+- `data-gamma` balances a photo: 1.1 for dark photos, up to 3 for bright ones.
 
 ## Rules
 
-- Focus: a 2px `--text` ring, offset 2px, on everything. It must stay visible on the blue buttons.
-- Tap targets are at least 44px: nav and footer links included. Buttons are 48px.
-- The current page is marked with `aria-current="page"` (set by `src/build.ts`), shown as an underline.
-- Hover styles only inside `@media (hover: hover)`, so nothing sticks after a tap.
-- Motion: 150ms colour transitions only, and none under `prefers-reduced-motion: reduce`.
-- On phones the header is one brand row plus one nav row (about 108px). The header CTA hides; every page
-  has its own booking button.
+- Focus: a 2px `--text` ring with a 3px offset, on everything. It must stay visible on the red buttons.
+- Tap targets at least 44px; buttons are 52px.
+- The current page is marked with `aria-current="page"` (set by `src/build.ts`), shown as a red underline.
+- Hover styles only inside `@media (hover: hover)`.
+- On phones the header is one brand row plus one nav row (about 108px); the header CTA hides.
 - Wide tables keep a sideways scroll on phones, with a one-line hint above them.
-- No inline `style` attributes: use a class.
+- No inline `style` attributes.
 - Demos and spec work always carry "made-up business" on a tag (a test checks it).
-- The spec page (`spec-summit-roofing.html`) has its own light theme on purpose, as a trade site would.
-  Its focus ring (`#92400e`, 6.8:1) and input borders (`#857f73`, 4.0:1) follow the same contrast rules.
+- No invented clients, numbers, reviews or testimonials. Value is shown with promises the owner can be held
+  to, labelled demos, and real client quotes only once a client has given written OK.
+- The spec page (`spec-summit-roofing.html`) keeps its own light theme on purpose, as a trade site would.
 
 ## Don'ts
 
-No Inter or other web fonts from a CDN. No uppercase eyebrows above headings. No "→" on links or cards.
-No hover lift or glow on cards. No fade-ins on scroll. No highlighted single words in headlines. No
-invented clients, numbers or reviews.
+No web fonts from a CDN. No all-caps labels. No "→" on links or cards. No hover lift on cards. No fade-in
+on scroll. No highlighted single words in headlines. No blue: the red is the only accent.
