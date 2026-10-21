@@ -23,7 +23,7 @@ for (const host of document.querySelectorAll('[data-halftone]')) {
 function start(host, img) {
   const c = document.createElement('canvas');
   c.setAttribute('aria-hidden', 'true');
-  host.append(c);
+  img.after(c); // right after the image, so captions and buttons layered on top stay visible
   host.classList.add('is-live');
   const ctx = c.getContext('2d');
   const dpr = Math.min(2, devicePixelRatio || 1);
