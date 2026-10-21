@@ -3,6 +3,16 @@
 Newest first. Every push to `main` gets an entry and the same number in
 `package.json → version`.
 
+## 0.4.0 · 2026-10-21
+
+- New look: near-black with one deep red, very large headlines, round buttons, glass cards and
+  giant outlined step numbers. The logo and favicon are red.
+- The photos on the home, home services and online shops pages, and the demo picture, are drawn as
+  a field of light dots that slowly breathes, gets a light sweep every few seconds and reacts gently
+  to the mouse. Still for "reduce motion"; a black and white photo without JavaScript.
+- Home page: no prices or small print under the buttons. New "What you can hold me to" promises and
+  the labelled roofer demo told as a short story. No testimonials until real clients send them.
+
 ## 0.3.0 · 2026-10-21
 
 - Fonts come from this site: Geist (headings) is self-hosted, the rest uses the system fonts. Google
