@@ -73,6 +73,12 @@ export function include(html: string, partials: Record<string, string>): string 
   });
 }
 
+/** Pure. Marks the main-menu link for the page named in <body data-page>, so the current page is announced. */
+export function markCurrent(html: string): string {
+  const page = html.match(/<body data-page="([\w-]+)"/)?.[1];
+  return page ? html.replace(`data-p="${page}"`, `data-p="${page}" aria-current="page"`) : html;
+}
+
 export function build(out = join(ROOT, 'dist'), config = loadConfig()): string[] {
   const src = join(ROOT, 'site');
   rmSync(out, { recursive: true, force: true });
@@ -84,7 +90,7 @@ export function build(out = join(ROOT, 'dist'), config = loadConfig()): string[]
   );
   const values = tokens(config);
   const pages = walk(out).filter((p) => p.endsWith('.html'));
-  for (const p of pages) writeFileSync(p, fill(include(readFileSync(p, 'utf8'), partials), values));
+  for (const p of pages) writeFileSync(p, markCurrent(fill(include(readFileSync(p, 'utf8'), partials), values)));
   return pages.map((p) => relative(out, p));
 }
 

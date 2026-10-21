@@ -3,7 +3,7 @@ import { existsSync, mkdtempSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { test } from 'node:test';
-import { build, fill, include, loadConfig, tokens } from '../src/build.ts';
+import { build, fill, include, loadConfig, markCurrent, tokens } from '../src/build.ts';
 
 const out = mkdtempSync(join(tmpdir(), 'codru-site-'));
 const config = loadConfig();
@@ -78,4 +78,16 @@ test('every page shows who runs the business and links the privacy page', () => 
     assert.ok(h.includes(config.postalAddress.replace(/&/g, '&amp;').slice(0, 20)) || h.includes('TODO'), `${p}: address`);
     assert.match(h, /href="privacy.html"/, `${p}: privacy link`);
   }
+});
+
+test('the main menu marks the page you are on, for screen readers too', () => {
+  assert.equal(markCurrent('<body data-page="work"><a data-p="work">W</a><a data-p="shop">S</a>'), '<body data-page="work"><a data-p="work" aria-current="page">W</a><a data-p="shop">S</a>');
+  assert.match(html('work.html'), /data-p="work" aria-current="page"/);
+  assert.match(html('home-services.html'), /data-p="home-services" aria-current="page"/);
+  assert.doesNotMatch(html('index.html'), /aria-current/);
+});
+
+test('fonts are served from this site, never from a third party', () => {
+  for (const p of pages) assert.doesNotMatch(html(p), /fonts\.(googleapis|gstatic)\.com/, `${p}: outside font host`);
+  assert.doesNotMatch(readFileSync(join(out, 'assets/site.css'), 'utf8'), /https?:\/\//);
 });
