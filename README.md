@@ -27,7 +27,7 @@ Node ≥ 23.6 runs the `.ts` files directly.
 ## Going live (owner)
 
 1. Fill in `site.config.json`: full name, city, postal address, legal form, then the booking link,
-   the questionnaire address and (optional) an audit-form endpoint. `npm run ready` must say READY.
+   the questionnaire address and (optional) an audit-form endpoint (empty = the audit form opens the visitor's email app). `npm run ready` must say READY.
 2. Add a photo of yourself if you like (a real person is the strongest proof a new studio has).
 3. Say "push". On GitHub: Settings → Pages → Source: **GitHub Actions**. The site appears at
    `https://codruatelier-ai.github.io/codru-atelier-site/` (or your own domain, under Pages → Custom domain).

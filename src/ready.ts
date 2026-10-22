@@ -1,6 +1,6 @@
 /**
  * `npm run ready`: may this site go public? Fails while any owner detail is a
- * TODO or a link still falls back to email. Prints what is left, in order.
+ * TODO or the booking or questionnaire link is empty. Prints what is left, in order. The audit endpoint is optional.
  */
 import { loadConfig } from './build.ts';
 
@@ -11,7 +11,6 @@ for (const [k, v] of Object.entries(c)) {
 }
 if (!c.bookingUrl) left.push('bookingUrl: the Google Calendar booking page link (client-outreach .claude/skills/book/booking-page.md)');
 if (!c.questionnaireUrl) left.push('questionnaireUrl: the live client-onboarding address');
-if (!c.auditEndpoint) left.push('auditEndpoint: where the free-audit form sends (until then it opens the visitor\'s email app)');
 
 if (left.length) {
   console.log('NOT READY to publish. Fill in site.config.json:');
@@ -20,3 +19,6 @@ if (left.length) {
 } else {
   console.log('READY: every owner detail and link is filled in.');
 }
+// Optional, so it never blocks publishing: without an endpoint the free-audit form opens the visitor's own
+// email app with the request filled in (assets/audit.js). A real endpoint keeps the consent record server-side.
+if (!c.auditEndpoint) console.log('Note: auditEndpoint is empty. The audit form falls back to email until an endpoint is set.');
