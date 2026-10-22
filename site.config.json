@@ -8,7 +8,7 @@
   "legalForm": "TODO(owner): e.g. PFA or SRL, with its registration number",
   "email": "codruatelier@gmail.com",
   "bookingUrl": "",
-  "questionnaireUrl": "",
+  "questionnaireUrl": "https://client-onboarding-lovat.vercel.app",
   "auditEndpoint": "",
   "siteUrl": "https://codruatelier-ai.github.io/codru-atelier-site/",
   "updated": "19 October 2026"
