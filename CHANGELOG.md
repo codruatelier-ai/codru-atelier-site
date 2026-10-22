@@ -3,6 +3,12 @@
 Newest first. Every push to `main` gets an entry and the same number in
 `package.json → version`.
 
+## 0.4.1 · 2026-10-22
+
+- The site is ready to publish: your name, city, address and an honest "sole trader (registration pending)" are filled in, and the booking and questionnaire links are live.
+- The audit endpoint is optional now. Without one, the Romanian audit form opens the visitor's email app; a proper endpoint is planned.
+- `npm run ready` says READY.
+
 ## 0.4.0 · 2026-10-21
 
 - New look: near-black with one deep red, very large headlines, round buttons, glass cards and
