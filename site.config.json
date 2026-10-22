@@ -1,15 +1,15 @@
 {
   "_note": "Public details shown on the site. Nothing secret goes here. `npm run ready` fails while any value is TODO or a link is empty; empty links fall back to email until then.",
   "ownerFirstName": "Sebastian",
-  "ownerFullName": "TODO(owner): your full name",
-  "city": "TODO(owner): your city",
+  "ownerFullName": "Sebastian Ursache",
+  "city": "Suceava",
   "country": "Romania",
-  "postalAddress": "TODO(owner): the business postal address (the same one every email shows)",
-  "legalForm": "TODO(owner): e.g. PFA or SRL, with its registration number",
+  "postalAddress": "Str. Baladei 3, 720159 Suceava, Romania",
+  "legalForm": "sole trader (registration pending)",
   "email": "codruatelier@gmail.com",
   "bookingUrl": "",
   "questionnaireUrl": "https://client-onboarding-lovat.vercel.app",
   "auditEndpoint": "",
   "siteUrl": "https://codruatelier-ai.github.io/codru-atelier-site/",
-  "updated": "19 October 2026"
+  "updated": "22 October 2026"
 }
