@@ -13,40 +13,40 @@
   "siteUrl": "https://codruatelier-ai.github.io/codru-atelier-site/",
   "updated": "22 October 2026",
   "instagramPricing": {
-    "_note": "DRAFT prices in EUR for site/instagram-assistants.html. Owner edits here only. Tier features are written in the page and must match the tier names.",
+    "_note": "Launch prices in EUR for site/instagram-assistants.html (set 2026-10-23). Edit here only. Tier features are written in the page and must match the tier names.",
     "currency": "€",
     "growth": [
       {
         "name": "Starter",
-        "setup": 290,
-        "monthly": 79
+        "setup": 190,
+        "monthly": 59
       },
       {
         "name": "Standard",
-        "setup": 490,
-        "monthly": 149
+        "setup": 390,
+        "monthly": 109
       },
       {
         "name": "Plus",
-        "setup": 790,
-        "monthly": 249
+        "setup": 690,
+        "monthly": 189
       }
     ],
     "studio": [
       {
         "name": "Essentials",
-        "setup": 490,
-        "monthly": 129
+        "setup": 390,
+        "monthly": 99
       },
       {
         "name": "Studio",
-        "setup": 790,
-        "monthly": 219
+        "setup": 690,
+        "monthly": 169
       },
       {
         "name": "Full team",
-        "setup": 1190,
-        "monthly": 349
+        "setup": 990,
+        "monthly": 279
       }
     ]
   }
