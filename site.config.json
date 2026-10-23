@@ -11,43 +11,5 @@
   "questionnaireUrl": "https://client-onboarding-lovat.vercel.app",
   "auditEndpoint": "https://client-onboarding-lovat.vercel.app/api/audit",
   "siteUrl": "https://codruatelier-ai.github.io/codru-atelier-site/",
-  "updated": "22 October 2026",
-  "instagramPricing": {
-    "_note": "Launch prices in EUR for site/instagram-assistants.html (set 2026-10-23). Edit here only. Tier features are written in the page and must match the tier names.",
-    "currency": "€",
-    "growth": [
-      {
-        "name": "Starter",
-        "setup": 190,
-        "monthly": 59
-      },
-      {
-        "name": "Standard",
-        "setup": 390,
-        "monthly": 109
-      },
-      {
-        "name": "Plus",
-        "setup": 690,
-        "monthly": 189
-      }
-    ],
-    "studio": [
-      {
-        "name": "Essentials",
-        "setup": 390,
-        "monthly": 99
-      },
-      {
-        "name": "Studio",
-        "setup": 690,
-        "monthly": 169
-      },
-      {
-        "name": "Full team",
-        "setup": 990,
-        "monthly": 279
-      }
-    ]
-  }
+  "updated": "22 October 2026"
 }

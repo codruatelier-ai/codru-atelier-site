@@ -3,6 +3,10 @@
 Newest first. Every push to `main` gets an entry and the same number in
 `package.json → version`.
 
+## 0.6.1 · 2026-10-23
+
+- The Instagram assistants page no longer shows prices. Visitors book a call to get a quote.
+
 ## 0.6.0 · 2026-10-23
 
 - New page for the two Instagram assistants (Instagram Growth and Studio Assistant): what each does, how setup works through ManyChat, what the client needs, an FAQ, and launch prices in euro (Instagram Growth from €190 setup and €59 a month; Studio Assistant from €390 setup and €99 a month).
