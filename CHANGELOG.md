@@ -3,6 +3,12 @@
 Newest first. Every push to `main` gets an entry and the same number in
 `package.json → version`.
 
+## 0.5.0 · 2026-10-23
+
+- The free-audit form now sends the request straight to us through the questionnaire project's
+  `/api/audit`, with a hidden bot trap and a minimum fill-in time. Visitors no longer have to open their
+  email app. If the endpoint is down, the form still falls back to email.
+
 ## 0.4.1 · 2026-10-22
 
 - The site is ready to publish: your name, city, address and an honest "sole trader (registration pending)" are filled in, and the booking and questionnaire links are live.
