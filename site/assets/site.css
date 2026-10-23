@@ -167,6 +167,7 @@ form.audit { display: grid; gap: var(--s4); max-width: 560px; }
 .field label { font-weight: 600; }
 .field input { width: 100%; font: inherit; color: var(--text); background: var(--field); border: 1px solid var(--control); border-radius: var(--r-md); padding: var(--s3) var(--s4); min-height: 52px; }
 .field input:focus-visible { border-color: var(--ember); }
+.trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 .consent { display: flex; gap: var(--s3); align-items: flex-start; }
 .consent input { width: 20px; height: 20px; margin-top: var(--s1); accent-color: var(--accent); flex: none; }
 .notice { padding: var(--s3) var(--s4); border-radius: var(--r-md); background: var(--field); border: 1px solid var(--control); }

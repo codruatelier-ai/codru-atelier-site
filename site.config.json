@@ -9,7 +9,7 @@
   "email": "codruatelier@gmail.com",
   "bookingUrl": "https://calendar.app.google/PtJyWmJbmzQse4S28",
   "questionnaireUrl": "https://client-onboarding-lovat.vercel.app",
-  "auditEndpoint": "",
+  "auditEndpoint": "https://client-onboarding-lovat.vercel.app/api/audit",
   "siteUrl": "https://codruatelier-ai.github.io/codru-atelier-site/",
   "updated": "22 October 2026"
 }

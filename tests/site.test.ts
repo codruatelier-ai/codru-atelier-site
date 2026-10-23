@@ -65,6 +65,16 @@ test('the audit form asks for consent with an unticked box and links the privacy
   assert.match(h, /data-email="[^"]+@[^"]+"/);
 });
 
+test('the audit form sends to the endpoint with the bot checks, and the privacy page names the services', () => {
+  const h = html('audit.html');
+  assert.match(h, /data-endpoint="https:\/\/[^"]+\/api\/audit"/);
+  assert.match(h, /name="company_fax"[^>]*tabindex="-1"/);
+  const js = html('assets/audit.js');
+  assert.match(js, /company_fax/);
+  assert.match(js, /opened_at/);
+  assert.match(html('privacy.html'), /free-audit request form/);
+});
+
 test('the privacy page says what the outreach actually does', () => {
   const h = html('privacy.html');
   for (const must of ['90 days', 'no thanks', 'hashed', 'No cookies', 'Anthropic', 'standard contractual clauses', 'ANSPDCP', config.email]) {
