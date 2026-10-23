@@ -19,6 +19,17 @@ export interface SiteConfig {
   auditEndpoint: string;
   siteUrl: string;
   updated: string;
+  instagramPricing: {
+    currency: string;
+    growth: PriceTier[];
+    studio: PriceTier[];
+  };
+}
+
+export interface PriceTier {
+  name: string;
+  setup: number;
+  monthly: number;
 }
 
 const ROOT = join(import.meta.dirname, '..');
@@ -33,7 +44,17 @@ const escapeHtml = (s: string) =>
 /** The values every {{token}} resolves to. Unfilled owner details stay visibly unfilled. */
 export function tokens(c: SiteConfig): Record<string, string> {
   const mail = (subject: string) => `mailto:${c.email}?subject=${encodeURIComponent(subject)}`;
+  const money = (n: number) => `${c.instagramPricing.currency}${n.toLocaleString('en-US')}`;
+  const tiers: Record<string, string> = {};
+  for (const [prefix, list] of [['ig', c.instagramPricing.growth], ['st', c.instagramPricing.studio]] as const) {
+    list.forEach((t, i) => {
+      tiers[`${prefix}${i + 1}Name`] = t.name;
+      tiers[`${prefix}${i + 1}Setup`] = money(t.setup);
+      tiers[`${prefix}${i + 1}Monthly`] = money(t.monthly);
+    });
+  }
   return {
+    ...tiers,
     ownerFirstName: c.ownerFirstName,
     ownerFullName: c.ownerFullName,
     city: c.city,
