@@ -7,6 +7,7 @@
   if (!form) return;
   const msg = document.getElementById('a-msg');
   const say = (text, ok) => { msg.textContent = text; msg.className = ok ? 'notice ok' : 'notice'; msg.hidden = false; };
+  const openedAt = Date.now();
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   form.addEventListener('submit', async (e) => {
@@ -19,6 +20,9 @@
       consent_text: form.querySelector('label[for="a-consent"]').textContent.trim(),
       page: location.href,
       at: new Date().toISOString(),
+      // Bot checks the server uses: a hidden field people never fill, and when the page was opened.
+      company_fax: form.company_fax.value,
+      opened_at: openedAt,
     };
     if (!data.company || !data.website || !EMAIL.test(data.email)) return say('Completați numele firmei, site-ul și o adresă de email validă.');
     if (!data.consent) return say('Bifați căsuța de acord, ca să vă putem trimite auditul prin email.');
