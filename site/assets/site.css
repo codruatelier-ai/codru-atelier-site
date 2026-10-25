@@ -196,3 +196,8 @@ form.audit { display: grid; gap: var(--s4); max-width: 560px; }
 /* Skip link */
 .skip { position: absolute; left: -9999px; top: var(--s2); z-index: 20; background: var(--text); color: var(--bg); padding: var(--s2) var(--s3); border-radius: var(--r-sm); }
 .skip:focus { left: var(--s2); }
+
+/* Two-column pages (the audit page): the heading sizes itself to its column, so a long word never runs into the form. */
+.grid.two > .section-head { min-width: 0; container-type: inline-size; }
+.grid.two > .section-head h1 { font-size: clamp(2rem, 11cqi, 4.5rem); overflow-wrap: break-word; hyphens: auto; }
+.grid.two > .card, .grid.two > form { min-width: 0; align-self: start; }

@@ -3,6 +3,10 @@
 Newest first. Every push to `main` gets an entry and the same number in
 `package.json → version`.
 
+## 0.6.2 · 2026-10-25
+
+- The audit page heading now sizes itself to its column, so the long Romanian word "dumneavoastră" no longer runs into the form on desktop, tablet or phone.
+
 ## 0.6.1 · 2026-10-23
 
 - The Instagram assistants page no longer shows prices. Visitors book a call to get a quote.
