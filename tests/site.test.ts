@@ -101,3 +101,21 @@ test('fonts are served from this site, never from a third party', () => {
   for (const p of pages) assert.doesNotMatch(html(p), /fonts\.(googleapis|gstatic)\.com/, `${p}: outside font host`);
   assert.doesNotMatch(readFileSync(join(out, 'assets/site.css'), 'utf8'), /https?:\/\//);
 });
+
+test('every page that has no inline code carries a strict Content-Security-Policy meta tag', () => {
+  const policed = pages.filter((p) => !p.startsWith('spec-'));
+  assert.ok(policed.length >= 8, `checking ${policed.length} pages`);
+  for (const p of policed) {
+    const tag = html(p).match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/);
+    assert.ok(tag, `${p}: has a CSP meta tag`);
+    const parts = tag[1]!.split('; ');
+    for (const need of ["default-src 'none'", "script-src 'self'", "style-src 'self'", "img-src 'self' data:", "font-src 'self'", "media-src 'self'", "form-action 'self'", "base-uri 'none'"]) {
+      assert.ok(parts.includes(need), `${p}: policy has ${need}`);
+    }
+    assert.doesNotMatch(tag[1]!, /unsafe-inline|unsafe-eval|\*/, `${p}: no inline or eval allowance`);
+    const connect = parts.find((x) => x.startsWith('connect-src '));
+    assert.ok(connect?.includes("'self'"), `${p}: connect-src allows this site`);
+    if (config.auditEndpoint) assert.ok(connect?.includes(config.auditEndpoint), `${p}: connect-src allows the audit endpoint`);
+    assert.doesNotMatch(html(p), /<style[\s>]|<script(?![^>]*\bsrc=)[^>]*>|\sstyle\s*=/i, `${p}: has inline code the policy would block`);
+  }
+});
